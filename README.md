@@ -1,0 +1,2 @@
+# rasterscrollsim
+chunklekitのラスタースクロールをシミュレーションする
