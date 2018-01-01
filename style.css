@@ -29,3 +29,66 @@ THE SOFTWARE.
 input[type="text"]{
 	width: 2.5rem;
 }
+
+input[type="range"]{
+	position: relative;
+	width: 8rem;
+	vertical-align: middle;
+}
+input[type="range"].y{
+/*	transform: rotate(90deg);
+	left: -3rem;*/
+}
+
+.raster-rect-block{
+    text-indent: -1rem;
+}
+/*.raster-bg1 span, .raster-bg2 span{*/
+.raster-query span{
+	/*background: lightblue;*/
+	/*vertical-align: middle;*/
+	display: inline-block;
+	text-align: center;
+	border: none;
+	line-height: 2rem;
+	height: 2rem;
+	width: 12rem;
+	vertical-align: top;
+	font-size: 0.8rem;
+}
+
+/*.raster-bg1::before, .raster-bg1::after,
+.raster-bg2::before, .raster-bg2::after{*/
+.raster-query::before, .raster-query::after{
+	content:" ";
+	display:inline-block;
+	border: 1rem solid transparent;
+	position: relative;
+}
+
+/*.raster-bg1::before, .raster-bg2::before{*/
+.raster-query::before{
+	border-right: 2rem solid;
+	margin-right: -2rem;
+}
+/*.raster-bg1::after, .raster-bg2::after{*/
+.raster-query::after{
+	border-left: 2rem solid;
+	margin-left: -2rem;
+}
+
+/*.raster-bg1::before{*/
+.raster-query.bg1::before{
+	border-right-color: lightblue;
+}
+/*.raster-bg1::after{*/
+.raster-query.bg1::after{
+	border-left-color: lightblue;
+}
+.raster-query.bg2::before{
+	border-right-color: lightgreen;
+}
+.raster-query.bg2::after{
+	border-left-color: lightgreen;
+}
+
