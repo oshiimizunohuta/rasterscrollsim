@@ -64,9 +64,12 @@ RasterScrollSimulator.prototype = {
 			, coil: MS('(5+2:3+3*20)^3')
 			, sctop: MS('(0*2 12+4:5+1 12+4:5+1|fh 0|fh*2;0 10+2:6+1 11+5:4+1 77 107|fh 0|fh*2;0 12+4:6+1 0 0|fh 12+4:6+1|fh 0|fh;10+6:7+2 10+6:7+2|fh)*4')
 			, scbottom: MS('((0 155;0^2 10+1:9+2) (12+4:9+2 12+4:9+2|fh (155|fh 0|fh;154|fh 0|fh)!;0*2 10+2:5+1 10+2:5+1|fh 0*2 170|fh 0|fh)!;0*4 10+2:5+1 10+2:5+1|fh 0*4;(0*4)^3 14+2:11+3 14+2:11+3|fh (0*4)^3)*4')
+			, cable: MS('0+5:6+1*8')
 
 			, helpwin: MS('((2+1:1+2 2+1:1+2|fh)*20!;(0*40)^4!;(2+1:1+2 2+1:1+2|fh)*20)')
 			, transring: MS('((8+2:10+3 8+2:10+3|fh)*10!;(216 185*2 216|fh)*10;((8+2:12+1 8+2:12+1|fh)*10)^2!;(216|fv 185|fv*2 216|fh|fv)*10;(8+2:10+3|fv 8+2:10+3|fh|fv)*10)')
+			, cards: MS('((2+3:12+1 194|fh)*10;((210 0*2 210|fh)*10)^2!;(211 4+2:14+1 211|fh)*10;(212 0*2 213)*10;(2+2:14+1 2+2:14+1|fh)*10)')
+			, cursors: MS('((178 179*2 180)*10;((179|r3 0*2 179|r1)*10)^4!;(180|r2 179|r2*2 180|r1)*10)')
 			, rectstart_1: MS('41|r2')
 			, rectstart_1p: null
 			, rectstart_2: MS('41|r3')
@@ -173,10 +176,15 @@ RasterScrollSimulator.prototype = {
 		SCROLL.bg1.drawSprite(charaChips.sctop, 0, y);
 		y = charaChips.win.h + charaChips.coil.h + charaChips.sctop.h;
 		SCROLL.bg1.drawSprite(charaChips.scbottom, 0, y);
+		y = charaChips.win.h + charaChips.coil.h + charaChips.sctop.h + charaChips.scbottom.h;
+		SCROLL.bg1.drawSprite(charaChips.cable, 0, y);
+		
 
 		SCROLL.bg2.clear(COLOR_BLACK);
 		SCROLL.bg2.drawSprite(charaChips.helpwin, 0, 0);
 		SCROLL.bg2.drawSprite(charaChips.transring, 0, charaChips.helpwin.h);
+		SCROLL.bg2.drawSprite(charaChips.cards, 0, charaChips.helpwin.h + charaChips.transring.h);
+		SCROLL.bg2.drawSprite(charaChips.cursors, 0, charaChips.helpwin.h + charaChips.transring.h + charaChips.cards.h);
 		SCROLL.bg2.clear(COLOR_WHITE, makeRect(0, 0, 40, 20));
 		SCROLL.bg2.y = SCROLL.bg2.getSize().h;
 
