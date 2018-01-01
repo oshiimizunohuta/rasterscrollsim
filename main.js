@@ -76,6 +76,7 @@ RasterScrollSimulator.prototype = {
 		this.charaChips.rectstart_1p = MSSC(this.charaChips.rectstart_1, [COLOR_WHITE], [[248, 184, 0, 255]]);
 		this.charaChips.rectstart_2p = MSSC(this.charaChips.rectstart_2, [COLOR_WHITE], [[248, 184, 0, 255]]);
 		this.charaChips.rectstart_2.setSwapColor([[88, 248, 152, 255]], [[248, 184, 0, 255]]);
+		this.charaChips.rectstart_1.setSwapColor([[164, 228, 252, 255]], [[248, 184, 0, 255]]);
 
 		this.canvasPos = {
 			start: {x: 0, y: 0}
@@ -193,9 +194,9 @@ RasterScrollSimulator.prototype = {
 			}
 		;
 		//after initScroll
-		p = make('p');
-		p.style.display = 'inline-block';
-		p.style.verticalAlign = 'middle';
+		p = make('div');
+//		p.style.display = 'inline-block';
+//		p.style.verticalAlign = 'middle';
 		
 		el[0] = make('span');
 		el[0].className = 'name';
@@ -506,15 +507,6 @@ RasterScrollSimulator.prototype = {
 		}
 		keyStateCheck();
 	},
-//	refreshInput: function () {
-//		var bg1 = SCROLL.bg1
-//				, bg2 = SCROLL.bg2
-//				;
-//		getEles('#bg1_x')[0].value = bg1.x;
-//		getEles('#bg1_y')[0].value = bg1.y;
-//		getEles('#bg2_x')[0].value = bg2.x;
-//		getEles('#bg2_y')[0].value = bg2.y;
-//	},
 	refreshRasterCode: function () {
 		var code = []
 				, self = this
@@ -531,16 +523,14 @@ RasterScrollSimulator.prototype = {
 	},
 	main: function () {
 		var self = this
-				, k
-				, charaChips = this.charaChips
-				;
+			, k
+		;
 
 		for (k in this.scenes) {
 			this.scenes[k].transition(this);
 		}
 
 		drawCanvasStacks();
-		SCROLL.bg1.drawSprite(charaChips.win, 0, 0);
 		SCROLL.bg1.rasterto(SCROLL.tmp);
 		SCROLL.bg2.rasterto(SCROLL.tmp);
 		SCROLL.sprite.rasterto(SCROLL.tmp);
