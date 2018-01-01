@@ -25,6 +25,9 @@ THE SOFTWARE.
     Created on : 2017/12/21, 22:59:24
     Author     : bitchunk
 */
+h1{
+	margin: 1rem;
+}
 
 input[type="text"]{
 	width: 2.5rem;
